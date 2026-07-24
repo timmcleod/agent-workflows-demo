@@ -17,9 +17,9 @@ class ContractReview extends Workflow
     public function build(WorkflowDefinition $workflow): WorkflowDefinition
     {
         return $workflow
-            ->start(ExtractClausesAgent::class)
-            ->then(RiskAnalysisAgent::class)
-            ->then(EnrichmentStep::class)
+            ->step(ExtractClausesAgent::class)
+            ->step(RiskAnalysisAgent::class)
+            ->step(EnrichmentStep::class)
             ->when(fn (WorkflowState $s) => (int) $s->get('steps.RiskAnalysisAgent.structured.riskScore', 0) > 7,
                 then: EscalationAgent::class,
                 else: AutoApproveStep::class)
@@ -27,6 +27,6 @@ class ContractReview extends Workflow
                 'approved' => 'required|boolean',
                 'notes' => 'nullable|string',
             ])
-            ->then(GenerateSummaryAgent::class);
+            ->step(GenerateSummaryAgent::class);
     }
 }
