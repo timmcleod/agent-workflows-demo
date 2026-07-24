@@ -8,23 +8,15 @@ use Laravel\Ai\Contracts\Agent;
 use Laravel\Ai\Contracts\HasStructuredOutput;
 use Laravel\Ai\Promptable;
 use Stringable;
-use TimMcLeod\AgentWorkflows\Contracts\HasWorkflowPrompt;
-use TimMcLeod\AgentWorkflows\WorkflowState;
 
 #[UseCheapestModel]
-class RiskAnalysisAgent implements Agent, HasStructuredOutput, HasWorkflowPrompt
+class RiskAnalysisAgent implements Agent, HasStructuredOutput
 {
     use Promptable;
 
     public function instructions(): Stringable|string
     {
         return 'You assess the legal and commercial risk of contracts based on their extracted clauses.';
-    }
-
-    public function workflowPrompt(WorkflowState $state): string
-    {
-        return "Assess the risk of a contract with these clauses:\n\n"
-            .$state->get('steps.ExtractClausesAgent.text');
     }
 
     public function schema(JsonSchema $schema): array
