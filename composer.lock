@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d23e3d2e1687e29f2f296d091d4b3287",
+    "content-hash": "580fefa0ad488635a2df7128e9abe016",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -6206,11 +6206,17 @@
         },
         {
             "name": "timmcleod/agent-workflows",
-            "version": "dev-main",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/timmcleod/agent-workflows.git",
+                "reference": "fe543d8c5f9fa0e23b091d04f6c9ffe9aef2297a"
+            },
             "dist": {
-                "type": "path",
-                "url": "../agent-workflows",
-                "reference": "35219e97499cddf8d3eb43b33f482eb16d285d54"
+                "type": "zip",
+                "url": "https://api.github.com/repos/timmcleod/agent-workflows/zipball/fe543d8c5f9fa0e23b091d04f6c9ffe9aef2297a",
+                "reference": "fe543d8c5f9fa0e23b091d04f6c9ffe9aef2297a",
+                "shasum": ""
             },
             "require": {
                 "illuminate/bus": "^12.0|^13.0",
@@ -6241,29 +6247,14 @@
                     "TimMcLeod\\AgentWorkflows\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "TimMcLeod\\AgentWorkflows\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/pest"
-                ],
-                "lint": [
-                    "vendor/bin/pint"
-                ],
-                "analyse": [
-                    "vendor/bin/phpstan analyse"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "Tim McLeod",
-                    "email": "tim.mcleod@warrenlamb.com"
+                    "email": "tim@timmcleod.com"
                 }
             ],
             "description": "Durable, resumable, human-interruptible agent workflows for the Laravel AI SDK — crash-safe orchestration on Laravel queues.",
@@ -6276,10 +6267,11 @@
                 "queues",
                 "workflows"
             ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/timmcleod/agent-workflows/issues",
+                "source": "https://github.com/timmcleod/agent-workflows/tree/v0.1.0"
+            },
+            "time": "2026-07-24T19:50:54+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -8727,9 +8719,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "timmcleod/agent-workflows": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
