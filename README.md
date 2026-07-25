@@ -56,7 +56,6 @@ Check the attempts column in `demo:status`: the two agent steps ran **once**. Th
 
 ## Things to try
 
-- Run `php artisan horizon` instead of `queue:work` (after installing Horizon) — every step is a job.
 - Reject instead of approving: `php artisan demo:approve <run-id> --reject`.
 - Break the workflow definition between run and resume to see strict definition-drift protection refuse to continue.
 - Inspect the tables directly: `agent_workflow_runs`, `agent_workflow_steps`, `agent_workflow_interrupts`.
