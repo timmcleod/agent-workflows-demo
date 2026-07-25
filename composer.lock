@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d7a1a8b966581f705e5d24a2b1a2d42",
+    "content-hash": "0df69978b8306836808b59a6befc6ee4",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -6206,16 +6206,16 @@
         },
         {
             "name": "timmcleod/agent-workflows",
-            "version": "v0.4.0",
+            "version": "v0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/timmcleod/agent-workflows.git",
-                "reference": "5643f7372ab2383236341b51d6edb0cb601d801d"
+                "reference": "dfdfc7d6b66fa34136fe710002c47e9c8b16d690"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/timmcleod/agent-workflows/zipball/5643f7372ab2383236341b51d6edb0cb601d801d",
-                "reference": "5643f7372ab2383236341b51d6edb0cb601d801d",
+                "url": "https://api.github.com/repos/timmcleod/agent-workflows/zipball/dfdfc7d6b66fa34136fe710002c47e9c8b16d690",
+                "reference": "dfdfc7d6b66fa34136fe710002c47e9c8b16d690",
                 "shasum": ""
             },
             "require": {
@@ -6269,9 +6269,9 @@
             ],
             "support": {
                 "issues": "https://github.com/timmcleod/agent-workflows/issues",
-                "source": "https://github.com/timmcleod/agent-workflows/tree/v0.4.0"
+                "source": "https://github.com/timmcleod/agent-workflows/tree/v0.5.0"
             },
-            "time": "2026-07-24T22:09:57+00:00"
+            "time": "2026-07-25T12:37:48+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
