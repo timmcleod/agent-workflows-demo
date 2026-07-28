@@ -16,13 +16,27 @@ ExtractClausesAgent → RiskAnalysisAgent → EnrichmentStep
 composer install
 cp .env.example .env && php artisan key:generate
 php artisan migrate
+```
 
-# The agents need a provider key. The SDK defaults to OpenAI:
+`.env.example` ships with `DEMO_FAKE_AGENTS=true`, so the whole demo runs with **no provider key** — the agents return deterministic faked responses. To use real agents instead, remove that line and add a key (the SDK defaults to OpenAI):
+
+```bash
 echo "OPENAI_API_KEY=sk-..." >> .env
 # (or publish config/ai.php and switch the default provider to anthropic/gemini/etc.)
 ```
 
 The queue uses the `database` driver so you can *see* the durability — jobs survive worker restarts.
+
+## The dashboard
+
+The demo installs [`timmcleod/agent-workflows-ui`](https://github.com/timmcleod/agent-workflows-ui), so every run below is also visible in the browser. Seed a few runs in interesting states and open it:
+
+```bash
+php artisan demo:seed
+php artisan serve   # → http://localhost:8000/agent-workflows
+```
+
+You'll see each run rendered as a live flowchart — completed steps green, the taken branch highlighted, the untaken branch dimmed. Runs awaiting sign-off show an approval form generated from the step's schema; approve one, run `php artisan queue:work --stop-when-empty`, and watch the summary step light up.
 
 ## 1. The happy path (with a human in the loop)
 
