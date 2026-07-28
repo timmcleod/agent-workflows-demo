@@ -6278,16 +6278,16 @@
         },
         {
             "name": "timmcleod/agent-workflows-ui",
-            "version": "v0.2.0",
+            "version": "v0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/timmcleod/agent-workflows-ui.git",
-                "reference": "c8ccb62e283f036aa50347f9a6677584974f8a7f"
+                "reference": "39c3d27daf74c0c90fc72979ed996fbe109d1513"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/timmcleod/agent-workflows-ui/zipball/c8ccb62e283f036aa50347f9a6677584974f8a7f",
-                "reference": "c8ccb62e283f036aa50347f9a6677584974f8a7f",
+                "url": "https://api.github.com/repos/timmcleod/agent-workflows-ui/zipball/39c3d27daf74c0c90fc72979ed996fbe109d1513",
+                "reference": "39c3d27daf74c0c90fc72979ed996fbe109d1513",
                 "shasum": ""
             },
             "require": {
@@ -6341,9 +6341,9 @@
             ],
             "support": {
                 "issues": "https://github.com/timmcleod/agent-workflows-ui/issues",
-                "source": "https://github.com/timmcleod/agent-workflows-ui/tree/v0.2.0"
+                "source": "https://github.com/timmcleod/agent-workflows-ui/tree/v0.2.1"
             },
-            "time": "2026-07-28T12:20:56+00:00"
+            "time": "2026-07-28T12:37:54+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
