@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a104df9e92b2fde74341beb607efb54",
+    "content-hash": "c6051e16b979640d33443577d48ed84a",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -6206,11 +6206,17 @@
         },
         {
             "name": "timmcleod/agent-workflows",
-            "version": "dev-main",
+            "version": "v0.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/timmcleod/agent-workflows.git",
+                "reference": "cb8d5323b3098ec3f6d9999c8a1ac1a2869e3e35"
+            },
             "dist": {
-                "type": "path",
-                "url": "../agent-workflows",
-                "reference": "42efdee7629669039974f34ea6c4210fe2d796ad"
+                "type": "zip",
+                "url": "https://api.github.com/repos/timmcleod/agent-workflows/zipball/cb8d5323b3098ec3f6d9999c8a1ac1a2869e3e35",
+                "reference": "cb8d5323b3098ec3f6d9999c8a1ac1a2869e3e35",
+                "shasum": ""
             },
             "require": {
                 "illuminate/bus": "^12.0|^13.0",
@@ -6230,13 +6236,13 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-main": "0.7.x-dev"
-                },
                 "laravel": {
                     "providers": [
                         "TimMcLeod\\AgentWorkflows\\AgentWorkflowsServiceProvider"
                     ]
+                },
+                "branch-alias": {
+                    "dev-main": "0.7.x-dev"
                 }
             },
             "autoload": {
@@ -6244,22 +6250,7 @@
                     "TimMcLeod\\AgentWorkflows\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "TimMcLeod\\AgentWorkflows\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/pest"
-                ],
-                "lint": [
-                    "vendor/bin/pint"
-                ],
-                "analyse": [
-                    "vendor/bin/phpstan analyse"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6279,18 +6270,25 @@
                 "queues",
                 "workflows"
             ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/timmcleod/agent-workflows/issues",
+                "source": "https://github.com/timmcleod/agent-workflows/tree/v0.7.0"
+            },
+            "time": "2026-07-28T11:38:40+00:00"
         },
         {
             "name": "timmcleod/agent-workflows-ui",
-            "version": "dev-main",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/timmcleod/agent-workflows-ui.git",
+                "reference": "495a03d174e70d5567a5e3acde601aa5d834743c"
+            },
             "dist": {
-                "type": "path",
-                "url": "../agent-workflows-ui",
-                "reference": "3628f1ed341ed33997d1e1da048679bc7d9b5237"
+                "type": "zip",
+                "url": "https://api.github.com/repos/timmcleod/agent-workflows-ui/zipball/495a03d174e70d5567a5e3acde601aa5d834743c",
+                "reference": "495a03d174e70d5567a5e3acde601aa5d834743c",
+                "shasum": ""
             },
             "require": {
                 "illuminate/contracts": "^12.0|^13.0",
@@ -6307,13 +6305,13 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-main": "0.1.x-dev"
-                },
                 "laravel": {
                     "providers": [
                         "TimMcLeod\\AgentWorkflowsUi\\AgentWorkflowsUiServiceProvider"
                     ]
+                },
+                "branch-alias": {
+                    "dev-main": "0.1.x-dev"
                 }
             },
             "autoload": {
@@ -6321,22 +6319,7 @@
                     "TimMcLeod\\AgentWorkflowsUi\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "TimMcLeod\\AgentWorkflowsUi\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/pest"
-                ],
-                "lint": [
-                    "vendor/bin/pint"
-                ],
-                "analyse": [
-                    "vendor/bin/phpstan analyse"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6356,10 +6339,11 @@
                 "ui",
                 "workflows"
             ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/timmcleod/agent-workflows-ui/issues",
+                "source": "https://github.com/timmcleod/agent-workflows-ui/tree/v0.1.0"
+            },
+            "time": "2026-07-28T11:38:52+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -8807,10 +8791,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "timmcleod/agent-workflows": 20,
-        "timmcleod/agent-workflows-ui": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

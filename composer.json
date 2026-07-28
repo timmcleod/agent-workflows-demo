@@ -9,21 +9,9 @@
         "php": "^8.3",
         "laravel/framework": "^13.8",
         "laravel/tinker": "^3.0",
-        "timmcleod/agent-workflows": "^0.7@dev",
-        "timmcleod/agent-workflows-ui": "^0.1@dev"
+        "timmcleod/agent-workflows": "^0.7",
+        "timmcleod/agent-workflows-ui": "^0.1"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../agent-workflows",
-            "options": {"symlink": true}
-        },
-        {
-            "type": "path",
-            "url": "../agent-workflows-ui",
-            "options": {"symlink": true}
-        }
-    ],
     "require-dev": {
         "fakerphp/faker": "^1.23",
         "laravel/pail": "^1.2.5",
