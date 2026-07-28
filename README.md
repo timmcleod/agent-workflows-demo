@@ -38,7 +38,7 @@ php artisan serve   # → http://localhost:8000/agent-workflows
 
 You'll see each run rendered as a live flowchart — completed steps green, the taken branch highlighted, the untaken branch dimmed. Runs awaiting sign-off show an approval form generated from the step's schema; approve one, run `php artisan queue:work --stop-when-empty`, and watch the summary step light up.
 
-![The dashboard showing a contract-review run paused at the sign-off gate, with the retried enrichment step visible in the audit trail](https://raw.githubusercontent.com/timmcleod/agent-workflows-ui/main/art/dashboard.png)
+![The dashboard showing a completed contract-review run: the escalation branch taken, auto-approve skipped, and the sign-off gate's interrupted-then-completed attempts in the audit trail](https://raw.githubusercontent.com/timmcleod/agent-workflows-ui/main/art/dashboard.png)
 
 ## 1. The happy path (with a human in the loop)
 
