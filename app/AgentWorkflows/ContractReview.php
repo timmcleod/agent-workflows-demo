@@ -10,17 +10,21 @@ use App\AgentWorkflows\Steps\AutoApproveStep;
 use App\AgentWorkflows\Steps\EnrichmentStep;
 use TimMcLeod\AgentWorkflows\Workflow;
 use TimMcLeod\AgentWorkflows\WorkflowDefinition;
-use TimMcLeod\AgentWorkflows\WorkflowState;
 
 class ContractReview extends Workflow
 {
+    public function stateClass(): string
+    {
+        return ContractReviewState::class;
+    }
+
     public function build(WorkflowDefinition $workflow): WorkflowDefinition
     {
         return $workflow
             ->step(ExtractClausesAgent::class, prompt: $this->extractPrompt(...))
             ->step(RiskAnalysisAgent::class, prompt: $this->riskPrompt(...))
             ->step(EnrichmentStep::class)
-            ->when($this->isHighRisk(...),
+            ->when(fn (ContractReviewState $state) => $state->isHighRisk(),
                 then: EscalationAgent::class,
                 else: AutoApproveStep::class,
                 thenPrompt: $this->escalationPrompt(...))
@@ -31,38 +35,32 @@ class ContractReview extends Workflow
             ->step(GenerateSummaryAgent::class, prompt: $this->summaryPrompt(...));
     }
 
-    protected function extractPrompt(WorkflowState $state): string
+    protected function extractPrompt(ContractReviewState $state): string
     {
-        return "Extract the key clauses from this contract:\n\n".$state->get('contract');
+        return "Extract the key clauses from this contract:\n\n".$state->contract();
     }
 
-    protected function riskPrompt(WorkflowState $state): string
+    protected function riskPrompt(ContractReviewState $state): string
     {
-        return "Assess the risk of a contract with these clauses:\n\n"
-            .$state->get('steps.ExtractClausesAgent.text');
+        return "Assess the risk of a contract with these clauses:\n\n".$state->clauses();
     }
 
-    protected function isHighRisk(WorkflowState $state): bool
-    {
-        return (int) $state->get('steps.RiskAnalysisAgent.structured.riskScore', 0) > 7;
-    }
-
-    protected function escalationPrompt(WorkflowState $state): string
+    protected function escalationPrompt(ContractReviewState $state): string
     {
         return sprintf(
             "Write an escalation note. Risk score: %d/10.\nRationale: %s",
-            $state->get('steps.RiskAnalysisAgent.structured.riskScore'),
-            $state->get('steps.RiskAnalysisAgent.structured.rationale'),
+            $state->riskScore(),
+            $state->riskRationale(),
         );
     }
 
-    protected function summaryPrompt(WorkflowState $state): string
+    protected function summaryPrompt(ContractReviewState $state): string
     {
         return sprintf(
             "Summarize this contract review in a short paragraph.\nRisk score: %d/10.\nSign-off: %s.\nReviewer notes: %s",
-            $state->get('steps.RiskAnalysisAgent.structured.riskScore'),
-            $state->get('approved') ? 'approved' : 'rejected',
-            $state->get('notes') ?? 'none',
+            $state->riskScore(),
+            $state->approved() ? 'approved' : 'rejected',
+            $state->reviewerNotes(),
         );
     }
 }

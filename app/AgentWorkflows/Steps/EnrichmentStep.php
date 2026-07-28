@@ -2,6 +2,7 @@
 
 namespace App\AgentWorkflows\Steps;
 
+use App\AgentWorkflows\ContractReviewState;
 use RuntimeException;
 use TimMcLeod\AgentWorkflows\WorkflowState;
 
@@ -12,9 +13,9 @@ use TimMcLeod\AgentWorkflows\WorkflowState;
  */
 class EnrichmentStep
 {
-    public function __invoke(WorkflowState $state): WorkflowState
+    public function __invoke(ContractReviewState $state): WorkflowState
     {
-        if ($state->get('simulate_failure')) {
+        if ($state->shouldSimulateFailure()) {
             throw new RuntimeException('Simulated enrichment outage (run demo:retry to recover).');
         }
 
