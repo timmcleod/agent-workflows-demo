@@ -8,6 +8,7 @@ use App\Agents\GenerateSummaryAgent;
 use App\Agents\RiskAnalysisAgent;
 use App\AgentWorkflows\Steps\AutoApproveStep;
 use App\AgentWorkflows\Steps\EnrichmentStep;
+use Carbon\CarbonInterval;
 use TimMcLeod\AgentWorkflows\Workflow;
 use TimMcLeod\AgentWorkflows\WorkflowDefinition;
 
@@ -31,6 +32,9 @@ class ContractReview extends Workflow
             ->awaitHuman(reason: 'Final sign-off required', schema: [
                 'approved' => 'required|boolean',
                 'notes' => 'nullable|string',
+            ], timeout: CarbonInterval::days(3), timeoutResponse: [
+                'approved' => false,
+                'notes' => 'Auto-rejected: sign-off timed out after 3 days.',
             ])
             ->step(GenerateSummaryAgent::class, prompt: $this->summaryPrompt(...));
     }
