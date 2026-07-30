@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a5b1bc9bbf6e02cb3fd79402057ab627",
+    "content-hash": "5244d4e7b97e1a39c9132e14f595c201",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -6206,24 +6206,28 @@
         },
         {
             "name": "timmcleod/agent-workflows",
-            "version": "v0.9.0",
+            "version": "v0.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/timmcleod/agent-workflows.git",
-                "reference": "d9efdaacfb4e5b5c38e03ab41861091988941fb7"
+                "reference": "834c0fe0de921d5025505f5b8cd7213951813b67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/timmcleod/agent-workflows/zipball/d9efdaacfb4e5b5c38e03ab41861091988941fb7",
-                "reference": "d9efdaacfb4e5b5c38e03ab41861091988941fb7",
+                "url": "https://api.github.com/repos/timmcleod/agent-workflows/zipball/834c0fe0de921d5025505f5b8cd7213951813b67",
+                "reference": "834c0fe0de921d5025505f5b8cd7213951813b67",
                 "shasum": ""
             },
             "require": {
                 "illuminate/bus": "^12.0|^13.0",
+                "illuminate/concurrency": "^12.0|^13.0",
+                "illuminate/console": "^12.0|^13.0",
                 "illuminate/contracts": "^12.0|^13.0",
                 "illuminate/database": "^12.0|^13.0",
+                "illuminate/events": "^12.0|^13.0",
                 "illuminate/queue": "^12.0|^13.0",
                 "illuminate/support": "^12.0|^13.0",
+                "illuminate/validation": "^12.0|^13.0",
                 "laravel/ai": "~0.10.1",
                 "php": "^8.3"
             },
@@ -6242,7 +6246,7 @@
                     ]
                 },
                 "branch-alias": {
-                    "dev-main": "0.8.x-dev"
+                    "dev-main": "0.10.x-dev"
                 }
             },
             "autoload": {
@@ -6272,29 +6276,29 @@
             ],
             "support": {
                 "issues": "https://github.com/timmcleod/agent-workflows/issues",
-                "source": "https://github.com/timmcleod/agent-workflows/tree/v0.9.0"
+                "source": "https://github.com/timmcleod/agent-workflows/tree/v0.10.0"
             },
-            "time": "2026-07-28T23:07:01+00:00"
+            "time": "2026-07-30T16:07:42+00:00"
         },
         {
             "name": "timmcleod/agent-workflows-ui",
-            "version": "v0.3.0",
+            "version": "v0.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/timmcleod/agent-workflows-ui.git",
-                "reference": "5a624088eeeb5279d4ecfb6281cb7928a5af5e3b"
+                "reference": "85c5fb656da4d53a98c127297bed09597c093cb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/timmcleod/agent-workflows-ui/zipball/5a624088eeeb5279d4ecfb6281cb7928a5af5e3b",
-                "reference": "5a624088eeeb5279d4ecfb6281cb7928a5af5e3b",
+                "url": "https://api.github.com/repos/timmcleod/agent-workflows-ui/zipball/85c5fb656da4d53a98c127297bed09597c093cb9",
+                "reference": "85c5fb656da4d53a98c127297bed09597c093cb9",
                 "shasum": ""
             },
             "require": {
                 "illuminate/contracts": "^12.0|^13.0",
                 "illuminate/support": "^12.0|^13.0",
                 "php": "^8.3",
-                "timmcleod/agent-workflows": "^0.9"
+                "timmcleod/agent-workflows": "^0.9|^0.10"
             },
             "require-dev": {
                 "larastan/larastan": "^3.0",
@@ -6341,9 +6345,9 @@
             ],
             "support": {
                 "issues": "https://github.com/timmcleod/agent-workflows-ui/issues",
-                "source": "https://github.com/timmcleod/agent-workflows-ui/tree/v0.3.0"
+                "source": "https://github.com/timmcleod/agent-workflows-ui/tree/v0.3.1"
             },
-            "time": "2026-07-28T23:10:31+00:00"
+            "time": "2026-07-30T16:09:18+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
