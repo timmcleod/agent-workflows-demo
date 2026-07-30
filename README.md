@@ -70,6 +70,16 @@ php artisan demo:status <run-id>
 
 Check the attempts column in `demo:status`: the two agent steps ran **once**. Their tokens were paid for once. Only `EnrichmentStep` shows two attempts.
 
+## 3. Agent debate — `debate()`
+
+```bash
+php artisan demo:debate                    # advocate vs skeptic, judged every round
+php artisan queue:work --stop-when-empty
+php artisan demo:status <run-id>           # → 3 rounds, consensus on round 3
+```
+
+A `DealAdvocateAgent` and a `RiskSkepticAgent` argue whether to sign the contract; a `DebateJudgeAgent` rules on the transcript after each round and the loop stops on consensus (cap: 4 rounds). Every round is a checkpoint — the dashboard's step attempts are the rounds, and the full transcript lives in the state bag under `steps.verdict.transcript`. The scripted fakes converge in three rounds: the advocate concedes a liability cap, the skeptic demands the IP clause too, both land on "sign with two amendments."
+
 ## Things to try
 
 - Reject instead of approving: `php artisan demo:approve <run-id> --reject`.

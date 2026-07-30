@@ -15,6 +15,7 @@ return [
 
     'workflows' => [
         App\AgentWorkflows\ContractReview::class,
+        App\AgentWorkflows\ContractDebate::class,
     ],
 
     /*

@@ -2,10 +2,13 @@
 
 namespace App\Support;
 
+use App\Agents\DealAdvocateAgent;
+use App\Agents\DebateJudgeAgent;
 use App\Agents\EscalationAgent;
 use App\Agents\ExtractClausesAgent;
 use App\Agents\GenerateSummaryAgent;
 use App\Agents\RiskAnalysisAgent;
+use App\Agents\RiskSkepticAgent;
 use Illuminate\Support\Str;
 
 /**
@@ -48,5 +51,56 @@ class FakeAgents
         GenerateSummaryAgent::fake(fn (string $prompt) => Str::contains($prompt, 'approved')
             ? 'The contract review is complete and the agreement was approved for signature. Key commercial terms were extracted, risk-scored, and cleared by the reviewer; the notes have been attached to the file.'
             : 'The contract review is complete and the agreement was REJECTED. The reviewer declined sign-off based on the flagged risk profile; the counterparty should be re-engaged with revised terms.');
+
+        static::registerDebate();
+    }
+
+    /**
+     * A scripted three-round debate arc for the contract-debate workflow.
+     * Debaters infer their round from the prompt: an opening protocol means
+     * round 1; a "(round 2)" transcript marker means they are speaking in
+     * round 3; otherwise round 2. The judge concedes consensus once the
+     * transcript contains round-3 statements.
+     */
+    protected static function registerDebate(): void
+    {
+        DealAdvocateAgent::fake(function (string $prompt) {
+            return match (true) {
+                Str::contains($prompt, 'opening position') => 'Sign it. A $200k committed annual spend locks in a supplier the delivery team already rates, '
+                    .'the auto-renewal gives us pricing stability, and every clause the lawyers dislike is standard opening-draft posturing we can negotiate away at renewal.',
+                Str::contains($prompt, '(round 2)') => 'Agreed on both amendments: liability capped at 12 months of fees AND work product assigned to the Client. '
+                    .'With those two changes I recommend signing — the commercials are too good to lose over drafting.',
+                default => 'The skeptic is right about the liability clause — unlimited exposure is not defensible, and I concede it must be capped at 12 months of fees. '
+                    .'But that is one amendment, not a reason to walk: the fee, the renewal terms, and the delivery record all still argue for this deal.',
+            };
+        });
+
+        // The skeptic speaks second, so by the time it is prompted in round
+        // N the advocate's "(round N)" entry is already in the transcript —
+        // its round markers sit one ahead of the advocate's.
+        RiskSkepticAgent::fake(function (string $prompt) {
+            return match (true) {
+                Str::contains($prompt, 'opening position') => 'Do not sign as drafted. Unlimited supplier liability, all IP assigned to the Supplier, and a 5-day '
+                    .'termination-for-convenience window put essentially every commercial risk on the Client. Any one of these is a walk-away clause; this draft has three.',
+                Str::contains($prompt, '(round 3)') => 'With the liability cap and the IP reassignment both agreed, my objections are resolved. '
+                    .'I join the recommendation: sign contingent on those two amendments.',
+                default => 'The advocate concedes the liability cap — good, that was the largest exposure. But the IP assignment clause alone transfers everything '
+                    .'we build to the Supplier. Reassign work product to the Client and I will drop my opposition; without it, still a no.',
+            };
+        });
+
+        DebateJudgeAgent::fake(function (string $prompt) {
+            return Str::contains($prompt, '(round 3)')
+                ? [
+                    'consensus' => true,
+                    'recommendation' => 'Sign, contingent on amending clause 2 (cap liability at 12 months of fees) and clause 3 (assign work product to the Client).',
+                    'rationale' => 'Both debaters now endorse the same contingent position: the advocate accepted both amendments and the skeptic withdrew opposition on that basis. The remaining terms were not in dispute.',
+                ]
+                : [
+                    'consensus' => false,
+                    'recommendation' => 'Do not sign yet; the panel is still apart on liability and IP terms.',
+                    'rationale' => 'The advocate argues commercial upside while the skeptic maintains specific clause objections that have not yet been conceded or rebutted in full.',
+                ];
+        });
     }
 }
