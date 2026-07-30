@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5244d4e7b97e1a39c9132e14f595c201",
+    "content-hash": "7b047512a16d6625669ac011d1e37b0e",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -6206,16 +6206,16 @@
         },
         {
             "name": "timmcleod/agent-workflows",
-            "version": "v0.10.0",
+            "version": "v0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/timmcleod/agent-workflows.git",
-                "reference": "834c0fe0de921d5025505f5b8cd7213951813b67"
+                "reference": "5554fd0f655da5453f6bfc1ecd46c98a703a8b0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/timmcleod/agent-workflows/zipball/834c0fe0de921d5025505f5b8cd7213951813b67",
-                "reference": "834c0fe0de921d5025505f5b8cd7213951813b67",
+                "url": "https://api.github.com/repos/timmcleod/agent-workflows/zipball/5554fd0f655da5453f6bfc1ecd46c98a703a8b0b",
+                "reference": "5554fd0f655da5453f6bfc1ecd46c98a703a8b0b",
                 "shasum": ""
             },
             "require": {
@@ -6246,7 +6246,7 @@
                     ]
                 },
                 "branch-alias": {
-                    "dev-main": "0.10.x-dev"
+                    "dev-main": "0.11.x-dev"
                 }
             },
             "autoload": {
@@ -6276,29 +6276,29 @@
             ],
             "support": {
                 "issues": "https://github.com/timmcleod/agent-workflows/issues",
-                "source": "https://github.com/timmcleod/agent-workflows/tree/v0.10.0"
+                "source": "https://github.com/timmcleod/agent-workflows/tree/v0.11.0"
             },
-            "time": "2026-07-30T16:07:42+00:00"
+            "time": "2026-07-30T22:43:36+00:00"
         },
         {
             "name": "timmcleod/agent-workflows-ui",
-            "version": "v0.3.1",
+            "version": "v0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/timmcleod/agent-workflows-ui.git",
-                "reference": "85c5fb656da4d53a98c127297bed09597c093cb9"
+                "reference": "2913528ef340f500245c802ca9245cbc761feb88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/timmcleod/agent-workflows-ui/zipball/85c5fb656da4d53a98c127297bed09597c093cb9",
-                "reference": "85c5fb656da4d53a98c127297bed09597c093cb9",
+                "url": "https://api.github.com/repos/timmcleod/agent-workflows-ui/zipball/2913528ef340f500245c802ca9245cbc761feb88",
+                "reference": "2913528ef340f500245c802ca9245cbc761feb88",
                 "shasum": ""
             },
             "require": {
                 "illuminate/contracts": "^12.0|^13.0",
                 "illuminate/support": "^12.0|^13.0",
                 "php": "^8.3",
-                "timmcleod/agent-workflows": "^0.9|^0.10"
+                "timmcleod/agent-workflows": "^0.9|^0.10|^0.11"
             },
             "require-dev": {
                 "larastan/larastan": "^3.0",
@@ -6315,7 +6315,7 @@
                     ]
                 },
                 "branch-alias": {
-                    "dev-main": "0.1.x-dev"
+                    "dev-main": "0.4.x-dev"
                 }
             },
             "autoload": {
@@ -6345,9 +6345,9 @@
             ],
             "support": {
                 "issues": "https://github.com/timmcleod/agent-workflows-ui/issues",
-                "source": "https://github.com/timmcleod/agent-workflows-ui/tree/v0.3.1"
+                "source": "https://github.com/timmcleod/agent-workflows-ui/tree/v0.4.0"
             },
-            "time": "2026-07-30T16:09:18+00:00"
+            "time": "2026-07-30T23:35:04+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
