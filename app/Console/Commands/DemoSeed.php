@@ -6,7 +6,6 @@ use App\AgentWorkflows\ContractReview;
 use App\Support\FakeAgents;
 use Illuminate\Console\Command;
 use Throwable;
-use TimMcLeod\AgentWorkflows\Facades\AgentWorkflow;
 use TimMcLeod\AgentWorkflows\Models\WorkflowRun;
 
 class DemoSeed extends Command
@@ -68,7 +67,7 @@ class DemoSeed extends Command
     protected function start(string $contract, bool $simulateFailure = false): WorkflowRun
     {
         try {
-            return AgentWorkflow::start(ContractReview::class, input: [
+            return ContractReview::start([
                 'contract' => $contract,
                 'simulate_failure' => $simulateFailure,
             ]);

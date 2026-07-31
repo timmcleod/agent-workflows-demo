@@ -4,7 +4,6 @@ namespace App\Console\Commands;
 
 use App\AgentWorkflows\ContractDebate;
 use Illuminate\Console\Command;
-use TimMcLeod\AgentWorkflows\Facades\AgentWorkflow;
 
 class DemoDebate extends Command
 {
@@ -14,7 +13,7 @@ class DemoDebate extends Command
 
     public function handle(): int
     {
-        $run = AgentWorkflow::start(ContractDebate::class, input: [
+        $run = ContractDebate::start([
             'contract' => <<<'CONTRACT'
             SERVICES AGREEMENT — The Supplier shall provide consulting services to the
             Client for a fee of $200,000 per year, auto-renewing annually unless either

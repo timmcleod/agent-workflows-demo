@@ -12,7 +12,7 @@
         "php": "^8.3",
         "laravel/framework": "^13.8",
         "laravel/tinker": "^3.0",
-        "timmcleod/agent-workflows": "^0.11",
+        "timmcleod/agent-workflows": "^0.12",
         "timmcleod/agent-workflows-ui": "^0.4"
     },
     "require-dev": {

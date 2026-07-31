@@ -4,7 +4,6 @@ namespace App\Console\Commands;
 
 use App\AgentWorkflows\ContractReview;
 use Illuminate\Console\Command;
-use TimMcLeod\AgentWorkflows\Facades\AgentWorkflow;
 
 class DemoRun extends Command
 {
@@ -14,7 +13,7 @@ class DemoRun extends Command
 
     public function handle(): int
     {
-        $run = AgentWorkflow::start(ContractReview::class, input: [
+        $run = ContractReview::start([
             'contract' => <<<'CONTRACT'
             SERVICES AGREEMENT — The Supplier shall provide consulting services to the
             Client for a fee of $200,000 per year, auto-renewing annually unless either
